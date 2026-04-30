@@ -43,8 +43,6 @@ jobs:
       - name: Run Web tests
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "Manual execution: ${{ github.event.inputs.test_type }}"
-
             if [ "${{ github.event.inputs.test_type }}" = "smoke" ]; then
               ./gradlew clean test -Dcucumber.filter.tags="@smoke"
             elif [ "${{ github.event.inputs.test_type }}" = "regression" ]; then
@@ -53,12 +51,10 @@ jobs:
               ./gradlew clean test -Dcucumber.filter.tags="@web"
             fi
           else
-            echo "Automatic execution: smoke tests"
             ./gradlew clean test -Dcucumber.filter.tags="@smoke"
           fi
         env:
           HEADLESS: true
-          CHROME_OPTS: "--window-size=1920,1080"
 
       - name: Upload Serenity report
         if: always()
@@ -66,4 +62,3 @@ jobs:
         with:
           name: serenity-web-report
           path: target
-
