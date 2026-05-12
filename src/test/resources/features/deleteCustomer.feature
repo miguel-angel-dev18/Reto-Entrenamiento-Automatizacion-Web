@@ -1,4 +1,4 @@
-@web @regression
+@regression
 
 Feature: Delete customer
 

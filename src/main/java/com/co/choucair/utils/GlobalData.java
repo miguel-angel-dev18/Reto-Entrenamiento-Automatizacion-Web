@@ -7,7 +7,7 @@ public class GlobalData {
     public static final String DEFAULT_REPRESENTATIVE = "Laura Callahan";
     public static final String DEFAULT_COUNTRY = "Germany";
     public static final String DEFAULT_CITY = "Berlin";
-    public static final String BASE_URL_API="https://jsonplaceholder.typicode.com";
+
 
 
 
